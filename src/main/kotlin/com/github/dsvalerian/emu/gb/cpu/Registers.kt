@@ -1,9 +1,9 @@
 package com.github.dsvalerian.emu.gb.cpu
 
-import com.github.dsvalerian.emu.gb.utils.DataUtils.combine
-import com.github.dsvalerian.emu.gb.utils.DataUtils.getHigh
-import com.github.dsvalerian.emu.gb.utils.DataUtils.getLow
-import com.github.dsvalerian.emu.gb.utils.DataUtils.setBit
+import com.github.dsvalerian.emu.common.utils.DataUtils.combine
+import com.github.dsvalerian.emu.common.utils.DataUtils.getHigh
+import com.github.dsvalerian.emu.common.utils.DataUtils.getLow
+import com.github.dsvalerian.emu.common.utils.DataUtils.writeBit
 
 class Registers {
     var a: UByte = 0x0u
@@ -47,18 +47,18 @@ class Registers {
     var pc: UShort = 0x0u
 
     fun setZeroFlag(value: Boolean) {
-        f = setBit(f, 7, value)
+        f = writeBit(f, 7, value)
     }
 
     fun setSubFlag(value: Boolean) {
-        f = setBit(f, 6, value)
+        f = writeBit(f, 6, value)
     }
 
     fun setHalfCarryFlag(value: Boolean) {
-        f = setBit(f, 5, value)
+        f = writeBit(f, 5, value)
     }
 
     fun setCarryFlag(value: Boolean) {
-        f = setBit(f, 4, value)
+        f = writeBit(f, 4, value)
     }
 }
