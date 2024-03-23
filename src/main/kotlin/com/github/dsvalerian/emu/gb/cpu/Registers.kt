@@ -3,6 +3,7 @@ package com.github.dsvalerian.emu.gb.cpu
 import com.github.dsvalerian.emu.common.utils.DataUtils.combine
 import com.github.dsvalerian.emu.common.utils.DataUtils.getHigh
 import com.github.dsvalerian.emu.common.utils.DataUtils.getLow
+import com.github.dsvalerian.emu.common.utils.DataUtils.readBit
 import com.github.dsvalerian.emu.common.utils.DataUtils.writeBit
 
 class Registers {
@@ -60,5 +61,21 @@ class Registers {
 
     fun setCarryFlag(value: Boolean) {
         f = writeBit(f, 4, value)
+    }
+
+    fun getZeroFlag(): Boolean {
+        return readBit(f, 7)
+    }
+
+    fun getSubFlag(): Boolean {
+        return readBit(f, 6)
+    }
+
+    fun getHalfCarryFlag(): Boolean {
+        return readBit(f, 5)
+    }
+
+    fun getCarryFlag(): Boolean {
+        return readBit(f, 4)
     }
 }
